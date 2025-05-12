@@ -29,6 +29,13 @@ grpcurl -plaintext -d '{"name": "Taro"}' localhost:50051 helloworld.Greeter/SayH
 
 ```
 
+`grpcurl` がインストールされていない場合は、以下のコマンドでインストールできます。
+
+```bash
+# Mac
+brew install grpcurl
+```
+
 ## 解説
 
 - `greeter.proto` で gRPC のプロトコルを定義しています。
