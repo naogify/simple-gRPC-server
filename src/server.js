@@ -1,17 +1,17 @@
 // server.js
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
+const path = require('path');
+const PROTO_PATH = path.join(__dirname, 'greeter.proto');
 
 // .proto ファイルをロード
-const packageDefinition = protoLoader.loadSync('./greeter.proto');
+const packageDefinition = protoLoader.loadSync(PROTO_PATH);
 const proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
 
 // 実装
 const greeter = {
   SayHello: (call, callback) => {
-
-    console.log('Request data:', call);
-
+    console.log('Request data:', call.request);
     const name = call.request.name;
     callback(null, { message: `Hello, ${name}` });
   },
@@ -19,7 +19,10 @@ const greeter = {
 
 // サーバー起動
 const server = new grpc.Server();
+
+// Greeter サービスを登録
 server.addService(proto.Greeter.service, greeter);
+
 server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), (err, port) => {
   if (err) {
     console.error(`Failed to bind server: ${err.message}`);
