@@ -24,12 +24,28 @@ npm start
 ```
 
 ### 動作確認
+
+- `SayHello` メソッドの呼び出し方
+
 ```bash
 grpcurl -plaintext -d '{"name": "Taro"}' localhost:50051 helloworld.Greeter/SayHello
-
+> 
+{
+  "message": "Hello Taro"
+}
 ```
 
+
+- 双方向通信 `Chat` メソッドの呼び出し方
+
+```bash
+npm run start:gui
+```
+
+
 - `grpcurl` がインストールされていない場合は、`brew install grpcurl` でインストールできます。
+- `npm run start:gui` は、 [grpcui](https://github.com/fullstorydev/grpcui) を必要とします。`brew install grpcui` でインストールできます。
+
 
 
 ## 解説

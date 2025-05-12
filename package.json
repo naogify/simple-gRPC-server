@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
+    "start:gui": "grpcui -plaintext -import-path ./src -proto greeter.proto localhost:50051",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

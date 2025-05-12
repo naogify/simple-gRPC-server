@@ -1,9 +1,10 @@
 syntax = "proto3";
 
-package helloworld;
+package greeter;
 
 service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc Chat (stream ChatMessage) returns (stream ChatMessage);
 }
 
 message HelloRequest {
@@ -12,4 +13,9 @@ message HelloRequest {
 
 message HelloReply {
   string message = 1;
+}
+
+message ChatMessage {
+  string user = 1;
+  string message = 2;
 }
