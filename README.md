@@ -29,12 +29,8 @@ grpcurl -plaintext -d '{"name": "Taro"}' localhost:50051 helloworld.Greeter/SayH
 
 ```
 
-`grpcurl` がインストールされていない場合は、以下のコマンドでインストールできます。
+- `grpcurl` がインストールされていない場合は、`brew install grpcurl` でインストールできます。
 
-```bash
-# Mac
-brew install grpcurl
-```
 
 ## 解説
 
