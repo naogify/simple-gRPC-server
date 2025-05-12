@@ -45,9 +45,9 @@ syntax = "proto3"; // gRPC のプロトコルバージョン
 
 package helloworld; // パッケージ名
 
-// Greeter サービスの定義
-// SayHello メソッドを定義
+// Greeter API の定義
 service Greeter {
+  // この API で使用できるエンドポイント（関数）を定義
   rpc SayHello (HelloRequest) returns (HelloReply);
 }
 
