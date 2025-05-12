@@ -9,6 +9,9 @@ const proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
 // 実装
 const greeter = {
   SayHello: (call, callback) => {
+
+    console.log('Request data:', call);
+
     const name = call.request.name;
     callback(null, { message: `Hello, ${name}` });
   },
